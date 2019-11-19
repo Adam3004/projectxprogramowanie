@@ -1,12 +1,16 @@
 package com.company.dzennik.logowanie.uczniowie.oceny;
 
+
 public class User {
     String name;
     String surname;
     String clas;
     String password;
     int id;
-    static int nextfreeid=1;
+    int maxId;
+    static int nextfreeid = 1;
+
+
 
     public String getClas() {
         return clas;
@@ -48,10 +52,10 @@ public class User {
         this.id = id;
     }
 
-    public User(String name, String surname, String clas, String password) {
+    public User(String name, String surname,int id, String clas, String password) {
         this.name = name;
         this.surname = surname;
-        this.id = nextfreeid;
+        this.id = id;
         this.clas = clas;
         this.password = password;
         nextfreeid++;

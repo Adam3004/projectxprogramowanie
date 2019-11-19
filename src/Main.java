@@ -32,10 +32,6 @@ public class Main {
                     System.out.println("podaj nazwisko: ");
                     String surname = sc.nextLine();
 
-                    System.out.println("podaj id: ");
-                    int id = sc.nextInt();
-                    sc.nextLine();
-
                     System.out.println("podaj swoją klase: ");
                     String clas = sc.nextLine();
 
@@ -43,7 +39,7 @@ public class Main {
                     String passowrd = sc.nextLine();
 
                     Singup uczen1 = new Singup(list1);
-                    User user = uczen1.singUp(name, surname, id, clas, passowrd);
+                    User user = uczen1.singUp(name, surname, clas, passowrd);
                     list1.add(user);
                     System.out.println(list1);
                     System.out.println("Wpisz co chcesz zrobic: ");
@@ -55,10 +51,6 @@ public class Main {
                     System.out.println("podaj nazwisko: ");
                     String surnameLog = sc.nextLine();
 
-                    System.out.println("podaj id: ");
-                    int idLog = sc.nextInt();
-                    sc.nextLine();
-
                     System.out.println("podaj swoją klase: ");
                     String clasLog = sc.nextLine();
 
@@ -67,7 +59,7 @@ public class Main {
 
 
                     Login uczen = new Login();
-                    User user1 = uczen.login(nameLog, surnameLog, clasLog, passowrdLog);
+                    User user1 = uczen.login(nameLog, surnameLog, passowrdLog);
                     System.out.println(user1.getName() + " " + user1.getSurname() + " " + user1.getClas());
 
 

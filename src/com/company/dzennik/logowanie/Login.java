@@ -11,11 +11,11 @@ import java.util.Scanner;
 public class Login {
 
 
-    public User login(String name, String surname, String clas, String passowrd) throws FileNotFoundException {
-        User uczen = new User(name, surname, clas, passowrd);
+    public User login(String name, String surname, String passowrd) throws FileNotFoundException {
         File file = new File("text.txt");
         Scanner in = new Scanner(file);
         boolean znaleziono = false;
+        User zalogowanyUzytkownik=null;
         while (in.hasNext()) {
             String zdanie = in.nextLine();
             String[] tablica = new String[5];
@@ -29,12 +29,13 @@ public class Login {
             int idtab = Integer.parseInt(idtabs);
             String clastab = tablica[3];
             String passwordtab = tablica[4];
-            User user = new User(nametab, surnametab, clastab, passwordtab);
+            User user = new User(nametab, surnametab, idtab, clastab, passwordtab);
 
 
-            if (uczen.getPassword().equals(user.getPassword()) && uczen.getName().equals(user.getName()) && uczen.getSurname().equals(user.getSurname())) {
+            if (passowrd.equals(user.getPassword()) && name.equals(user.getName()) && surname.equals(user.getSurname())) {
                 System.out.println("zalogowano");
                 znaleziono = true;
+                zalogowanyUzytkownik=user;
                 break;
 //            System.out.println(uczen);
 //            System.out.println(user);
@@ -47,7 +48,7 @@ public class Login {
             System.out.println("nieznaleziono użytkownika");
         }
 
-        return uczen;
+        return zalogowanyUzytkownik;
     }
 
 
